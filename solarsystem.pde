@@ -10,4 +10,5 @@ void draw() {
   background(0);
   translate(width / 2, height / 2);
   sun.show();
+  sun.orbit();
 }
