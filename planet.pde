@@ -13,45 +13,50 @@ class Planet {
     v.mult(distance);
     angle = random(TWO_PI);
     orbitSpeed = o;
-  }
-    void orbit() {
-      angle = angle + orbitSpeed;
-      if(planets != null) {
-        for (int i = 0; i < planets.length; i++) {
-          planets[i].orbit();
-        }
-      }
-    }
-    
-    void spawnMoons(int total, int level) {
-      planets = new Planet[total];
+}
+  void orbit() {
+    angle = angle + orbitSpeed;
+    if (planets != null) {
       for (int i = 0; i < planets.length; i++) {
-        float r = radius / (level * 2);
-        float d = random((radius + r),(radius + r) * 2);
-        float o = random( -0.04, 0.04);
-        planets[i] = new Planet(r, d, o);
-        if(level < 2) {
-          int num = 1; //int(random(0,4));
-          planets[i].spawnMoons(num, level + 1);
-        }
+        planets[i].orbit();
       }
-      
     }
-    
-    
-    void show() {
-      pushMatrix();
-      noStroke();
-      fill(255);
-      //rotate(angle);
-      translate(v.x, v.y, v.z); //Translations are cumulative!
-      sphere(radius);
-      if(planets != null) {
-        for (int i = 0; i < planets.length; i++) {
-          planets[i].show();
-        }
+  }
+  
+  void spawnMoons(int total, int level) {
+    planets = new Planet[total];
+    for (int i = 0; i < planets.length; i++) {
+      float r = radius / (level * 2);
+      float d = random((radius + r),(radius + r) * 2);
+      float o = random( -0.04, 0.04);
+      planets[i] = new Planet(r, d, o);
+      if (level < 1) {
+        int num = 1; //int(random(0,4));
+        planets[i].spawnMoons(num, level + 1);
       }
-      popMatrix();
     }
     
   }
+  
+  
+  void show() {
+    pushMatrix();
+    noStroke();
+    PVector v2 = new PVector(1,0, 1);
+    PVector p = v.cross(v2);
+    rotate(angle, p.x, p.y, p.z);
+    stroke(255);
+    line(0,0,0, v.x, v.y, v.z);
+    translate(v.x, v.y, v.z); //Translations are cumulative!
+    noStroke();
+    fill(255);
+    sphere(radius);
+    if (planets != null) {
+      for (int i = 0; i < planets.length; i++) {
+        planets[i].show();
+      }
+    }
+    popMatrix();
+  }
+  
+}
