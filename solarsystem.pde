@@ -1,3 +1,7 @@
+import peasy.*;
+import peasy.org.apache.commons.math.*;
+import peasy.org.apache.commons.math.geometry.*;
+
 Planet sun; //I know it's not a planet.
 
 void setup() {
