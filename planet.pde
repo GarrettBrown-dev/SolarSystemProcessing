@@ -23,11 +23,11 @@ class Planet {
    void spawnMoons(int total, int level) {
      planets = new Planet[total];
      for (int i = 0; i < planets.length; i++) {
-       float r = radius / (level * 2);
-       float d = random(75,300);
-       float o = random(0.02, 0.07);
+       float r = radius / (level * 1.2);
+       float d = random(50,150);
+       float o = random( -0.04, 0.04);
        planets[i] = new Planet(r, d / level, o);
-       if (level < 2) {
+       if (level < 3) {
          int num = int(random(0,4));
          planets[i].spawnMoons(num, level + 1);
        }
