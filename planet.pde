@@ -41,7 +41,7 @@ class Planet {
      fill(255, 100);
      rotate(angle);
      translate(distance, 0); //Translations are cumulative!
-     ellipse(0,0, radius * 2, radius * 2);
+     sphere(radius);
      if (planets != null) {
        for (int i = 0; i < planets.length; i++) {
          planets[i].show();
