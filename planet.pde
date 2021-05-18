@@ -5,11 +5,11 @@ class Planet {
   Planet[] planets;
   float orbitSpeed;
   
-  Planet(float r, float d) {
+  Planet(float r, float d, float o) {
     radius = r;
     distance = d;
     angle = random(TWO_PI);
-    orbitSpeed = random(0.1, 0.3);
+    orbitSpeed = o;
   }
     void orbit() {
       angle = angle + orbitSpeed;
@@ -25,7 +25,8 @@ class Planet {
       for (int i = 0; i < planets.length; i++) {
         float r = radius * 0.5;
         float d = random(75,300);
-        planets[i] = new Planet(r, d);
+        float o = random(0.02, 0.1);
+        planets[i] = new Planet(r, d, o);
       }
       
     }
