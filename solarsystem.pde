@@ -22,7 +22,7 @@ void setup() {
 
 void draw() {
   background(0);
-  //lights();
+  lights();
   pointLight(255, 255, 255, 0, 0, 0);
   sun.show();
   sun.orbit();
