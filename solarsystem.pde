@@ -10,7 +10,7 @@ PImage img;
 
 void setup() {
   size(600, 600, P3D);
-  img = loadImage("sun.jpg");
+  img = loadImage("../textures/sun.jpg");
   cam = new PeasyCam(this, 400);
   sun = new Planet(50, 0, 0);
   sun.spawnMoons(4, 1);
