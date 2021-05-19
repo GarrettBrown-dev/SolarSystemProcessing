@@ -14,9 +14,9 @@ void setup() {
   sunTexture = loadImage("../textures/sun.jpg");
   textures[0] = loadImage("../textures/mars.jpg");
   textures[1] = loadImage("../textures/earth.jpg");
-  textures[0] = loadImage("../textures/mercury.jpg");
+  textures[2] = loadImage("../textures/mercury.jpg");
   cam = new PeasyCam(this, 400);
-  sun = new Planet(50, 0, 0);
+  sun = new Planet(50, 0, 0, sunTexture);
   sun.spawnMoons(4, 1);
 }
 
